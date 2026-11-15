@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from Tienda.models import categoria, Juego, Pedido
+from django.contrib.humanize.templatetags.humanize import intcomma
 
 # Register your models here.
 
@@ -8,7 +9,7 @@ class categoriaForm(admin.ModelAdmin):
     list_display = ['Nombre']
 
 class JuegoForm(admin.ModelAdmin):
-    list_display = ['ImagenCaja', 'Nombre', 'Valor', 'Stock', 'EstadoVenta']
+    list_display = ['ImagenCaja', 'Nombre', 'precio_clp', 'Stock', 'EstadoVenta']
 
     @admin.display(description='Imagen')
     def imagen_previa(self, obj):
@@ -18,6 +19,10 @@ class JuegoForm(admin.ModelAdmin):
                 obj.ImagenCaja.url
             )
         return "Sin imagen"
+
+    @admin.display(description='Precio')
+    def precio_clp(self, obj):
+        return f"$ {intcomma(obj.Valor)}"   
 
 
 class PedidoForm(admin.ModelAdmin):
