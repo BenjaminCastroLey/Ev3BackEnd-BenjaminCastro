@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
+    <title>Compra exitosa</title>
+</head>
+<body class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <h2 class="text-success mb-4">Compra realizada con éxito</h2>
+            <p><strong>Cliente:</strong> {{ pedido.Nombre }}</p>
+            <p><strong>Correo:</strong> {{ pedido.Correo }}</p>
+            <p><strong>Juego:</strong> {{ juego.Nombre }}</p>
+            <p><strong>Cantidad:</strong> {{ pedido.CantidadPedido }}</p>
+            <p><strong>Código de identificación:</strong> {{ pedido.CodigoIdentificacion }}</p>
+            <p><strong>Fecha:</strong> {{ pedido.DateTime }}</p>
+
+            <a href="{% url 'home' %}" class="btn btn-primary mt-3">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -26,7 +26,7 @@ class JuegoForm(admin.ModelAdmin):
 
 
 class PedidoForm(admin.ModelAdmin):
-    list_display = ['Nombre', 'Correo', 'CodigoIdentificacion']
+    list_display = ['Nombre', 'Correo', 'CodigoIdentificacion', 'DateTime']
 
 admin.site.register(categoria, categoriaForm)
 admin.site.register(Juego, JuegoForm)

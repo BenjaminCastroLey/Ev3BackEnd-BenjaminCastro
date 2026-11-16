@@ -34,7 +34,7 @@ class Pedido(models.Model):
     Pedido_id = models.AutoField(primary_key=True)
     Juego_id = models.ForeignKey(Juego, on_delete=models.CASCADE)
     Nombre = models.CharField(max_length=50)
-    Correo = models.EmailField()
+    Correo = models.EmailField(blank=True)
     CantidadPedido = models.IntegerField(
         default=1,
         validators=[
