@@ -9,11 +9,10 @@ def index(request):
 
 def comprar(request, id):
 
-    form = FormVenta()
-
-    producto = Juego.objects.get(id = id)
+    producto = Juego.objects.get(Juego_id=id)
+    form = FormVenta(initial={'Juego_id': producto.Juego_id})
     data = {
-        'juego' : producto,
-        'form' : form
+        'juego': producto,
+        'form': form
     }
     return render(request, 'comprar.html', data)

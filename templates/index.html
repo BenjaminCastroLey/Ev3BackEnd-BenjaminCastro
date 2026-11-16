@@ -42,6 +42,7 @@
                         {% endif %}
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ p.Nombre }}</h5>
+                            <p class="card-text">Categoria: {{ p.Categoria_id}}</p>
                             <p class="card-text">Precio: CLP $ {{ p.Valor|intcomma }}</p>
                             <p class="card-text">Jugadores: {{ p.CantidadJugadores}}</p>
                             <p class="card-text">Stock: {{ p.Stock}}</p>
@@ -51,7 +52,7 @@
                         {% if p.Stock == 0 %}
                         <a name="" id="" class="btn btn-danger w-100 disabled" href="#" role="button">No Disponible</a>
                         {% else %}
-                        <a name="" id="" class="btn btn-primary w-100" href="comprar/{{ p.id }}" role="button">Comprar</a>
+                        <a name="" id="" class="btn btn-primary w-100" href="{% url 'comprar' p.Juego_id %}" role="button">Comprar</a>
 
                         {% endif %}
                     </div>
