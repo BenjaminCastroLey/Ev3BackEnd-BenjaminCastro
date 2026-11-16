@@ -1,3 +1,4 @@
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +15,7 @@
             <p><strong>Correo:</strong> {{ pedido.Correo }}</p>
             <p><strong>Juego:</strong> {{ juego.Nombre }}</p>
             <p><strong>Cantidad:</strong> {{ pedido.CantidadPedido }}</p>
+            <p><strong>Total:</strong> CLP $ {{ pedido.total|intcomma }}</p>
             <p><strong>Código de identificación:</strong> {{ pedido.CodigoIdentificacion }}</p>
             <p><strong>Fecha:</strong> {{ pedido.DateTime }}</p>
 

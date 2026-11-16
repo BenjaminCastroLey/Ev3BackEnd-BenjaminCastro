@@ -50,5 +50,9 @@ class Pedido(models.Model):
         editable=False
     )
 
+    @property
+    def total(self):
+        return self.Juego_id.Valor * self.CantidadPedido
+
     def __str__(self):
         return self.Nombre
