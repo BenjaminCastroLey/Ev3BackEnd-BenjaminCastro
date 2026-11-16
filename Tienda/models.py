@@ -1,5 +1,5 @@
 import uuid
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 # Create your models here.
@@ -35,6 +35,13 @@ class Pedido(models.Model):
     Juego_id = models.ForeignKey(Juego, on_delete=models.CASCADE)
     Nombre = models.CharField(max_length=50)
     Correo = models.EmailField()
+    CantidadPedido = models.IntegerField(
+        default=1,
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(5)
+        ]
+    )
     DateTime = models.DateTimeField(auto_now_add=True)
     CodigoIdentificacion = models.CharField(
         max_length=10,
