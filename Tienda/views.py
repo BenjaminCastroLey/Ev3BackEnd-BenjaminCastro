@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from Tienda.models import categoria, Juego, Pedido
 
-
-def home(request):
-    return HttpResponse("Bienvenido a la tienda")
+def index(request):
+    productos = Juego.objects.all()
+    data = {'productos': productos}
+    return render(request, 'Index.html', data)
